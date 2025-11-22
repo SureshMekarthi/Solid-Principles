@@ -10,6 +10,15 @@ namespace Solid_Principles
     {
         static void Main(string[] args)
         {
+            UserService userService = new UserService();
+            try
+            {
+                userService.RegisterUser("test@example.com");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
         }
     }
 }

@@ -9,10 +9,7 @@ namespace Solid_Principles
 {
     internal class UserService
     {
-        //public bool isValidEmail(string email)
-        //{
-        //  return email.Contains("@");
-        //}
+        //Voilation of Single Responsibility Principle
 
         public void RegisterUser(string email)
         {
