@@ -25,13 +25,20 @@ namespace Solid_Principles
         public static int CalculateDays(string date)
         {
             string[] inputArray = date.Split('-');
+            int[] monthsDays = new int[12] { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+            int result = 0;
+            monthsDays[1] = int.Parse(inputArray[0]) % 4 == 0 ? 29 : 28;
 
-
-            if (int.Parse(inputArray[0]) % 4 == 0)
+            for (int i = 0; i < int.Parse(inputArray[1]); i++)
             {
-                return 366 - (12 - int.Parse(inputArray[1])) * 30 - (30 - int.Parse(inputArray[2]));
+                if (i == int.Parse(inputArray[1]) - 1)
+                {
+                    result = result + int.Parse(inputArray[2]);
+                    break;
+                }
+                result = result + monthsDays[i];
             }
-            return 365 - (12 - int.Parse(inputArray[1])) * 30 - (30 - int.Parse(inputArray[2]));
+            return result;
         }
     }
 }
